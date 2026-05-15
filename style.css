@@ -1,0 +1,12 @@
+* {
+    margin: 0p;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: blue;
+    color:black;
+    line-height: 1.6;
+}
