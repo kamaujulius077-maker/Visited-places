@@ -56,3 +56,8 @@ body {
     border: 1px solid 12px;
     box-shadow: 0 4px 12px rgba(red, green, blue, alpha);
 }
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
