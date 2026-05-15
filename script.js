@@ -99,3 +99,49 @@ function deletePlace(id) {
 function savePlaces() {
     localStorage.setItem('visitedPlaces', JSON.stringify(places));
 }
+
+// Format date to readable format
+function formatDate(dateStr) {
+    const date = new Date(dateStr);
+    if (isNaN(date)) return 'Invalid date';
+    return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+    });
+}
+
+// Show error message under input
+function showError(elementId, message) {
+    const errorEl = document.getElementById(elementId);
+    if (errorEl) {
+        errorEl.textContent = message;
+        errorEl.classList.add('show');
+    }
+}
+
+// Clear all error messages
+function clearErrors() {
+    document.querySelectorAll('.error-message').forEach(el => {
+        el.textContent = '';
+        el.classList.remove('show');
+    });
+}
+
+// Show success message for 3 seconds
+function showSuccess() {
+    successMessage.classList.add('show');
+    setTimeout(() => {
+        successMessage.classList.remove('show');
+    }, 3000);
+}
+
+// Prevent XSS by escaping HTML
+function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+// Make deletePlace available globally for onclick
+window.deletePlace = deletePlace;
