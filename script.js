@@ -25,3 +25,49 @@ placeForm.addEventListener('submit', function(e) {
     const rating = formData.get('rating');
     const notes = formData.get('notes').trim();
 
+    // Validation
+    let hasError = false;
+    if (!placeName) {
+        showError('placeName-error', 'Place name is required');
+        hasError = true;
+    }
+    if (!city) {
+        showError('city-error', 'City/Country is required');
+        hasError = true;
+    }
+    if (!dateVisited) {
+        showError('date-error', 'Date is required');
+        hasError = true;
+    }
+    if (hasError) return;
+
+    // Create new place object
+    const newPlace = {
+        id: Date.now(),
+        placeName,
+        city,
+        dateVisited,
+        landmarks,
+        season,
+        rating,
+        notes
+    };
+
+    // Add to array, save, and re-render
+    places.unshift(newPlace);
+    savePlaces();
+    renderPlaces();
+    
+    // Reset form and show success
+    placeForm.reset();
+    showSuccess();
+});
+
+// Render all places as cards
+function renderPlaces() {
+    if (places.length === 0) {
+        placesList.innerHTML = '';
+        emptyState.style.display = 'block';
+        return;
+    }
+    
