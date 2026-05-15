@@ -9,3 +9,8 @@ Delete places with one click
 Your data stays after refresh in localtorage.
 Responsive design works on destop and mobile.
 Clear card layouts with colorful themes.
+
+## Requirements
+
+Mordern browser with JavaScript enebled.
+No external libraries or frameworks.
