@@ -4,4 +4,8 @@ This is a website for the places i have visited
 
 ## Features
 
--**Add PLaces** with name, location, date , season, rating, landmarks, and notes
+-**Add PLaces** with name, location, date , season, rating, landmarks, and notes.
+Delete places with one click
+Your data stays after refresh in localtorage.
+Responsive design works on destop and mobile.
+Clear card layouts with colorful themes.
