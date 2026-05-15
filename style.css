@@ -10,3 +10,49 @@ body {
     color:black;
     line-height: 1.6;
 }
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+.hero {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid gold;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    color:aqua;
+    font-size: 1.1rem;
+}
+
+/* Layout */
+.main-grid {
+    grid-template-columns: 1fr 1.2fr;
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+@media (max-width: 900px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cards */
+.form-card, .place-card {
+    background: pink;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid 12px;
+    box-shadow: 0 4px 12px rgba(red, green, blue, alpha);
+}
