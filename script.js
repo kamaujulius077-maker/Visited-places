@@ -70,4 +70,32 @@ function renderPlaces() {
         emptyState.style.display = 'block';
         return;
     }
+    emptyState.style.display = 'none';
     
+    placesList.innerHTML = places.map(place => `
+        <div class="place-card">
+            <div class="place-header">
+                <h3>${escapeHTML(place.placeName)}</h3>
+                <button class="delete-btn" onclick="deletePlace(${place.id})" aria-label="Delete">×</button>
+            </div>
+            <p><strong>Location:</strong> ${escapeHTML(place.city)}</p>
+            <p><strong>Date:</strong> ${formatDate(place.dateVisited)}</p>
+            <p><strong>Season:</strong> ${place.season}</p>
+            <p><strong>Rating:</strong> ${'⭐'.repeat(place.rating)} ${place.rating}/5</p>
+            ${place.landmarks ? <p><strong>Landmarks:</strong> ${escapeHTML(place.landmarks)}</p> : ''}
+            ${place.notes ? <p><strong>Notes:</strong> ${escapeHTML(place.notes)}</p> : ''}
+        </div>
+    `).join('');
+}
+
+// Delete a place by ID
+function deletePlace(id) {
+    places = places.filter(p => p.id !== id);
+    savePlaces();
+    renderPlaces();
+}
+
+// Save places to localStorage
+function savePlaces() {
+    localStorage.setItem('visitedPlaces', JSON.stringify(places));
+}
